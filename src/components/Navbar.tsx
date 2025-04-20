@@ -1,22 +1,30 @@
-
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-white shadow-sm px-4 sm:px-6 lg:px-8 py-4 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2">
+        {/* Logo with onClick handler */}
+        <div 
+          onClick={handleLogoClick} 
+          className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
+        >
           <div className="bg-primary h-8 w-8 rounded-md flex items-center justify-center animate-pulse-gentle">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
             </svg>
           </div>
           <span className="text-xl font-bold text-primary">ThermoAquaFlow</span>
-        </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">

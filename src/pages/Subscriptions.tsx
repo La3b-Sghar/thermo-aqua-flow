@@ -8,7 +8,7 @@ const Subscriptions = () => {
 	const subscriptionPlans = [
 		{
 			title: 'Basic',
-			price: '35,000 TND initial + 3,500 TND/year',
+			price: '18,000 TND initial + 3,500 TND/year',
 			description: 'Essential energy generation with Stirling motors',
 			features: [
 				'Stirling motor installation',
@@ -41,7 +41,7 @@ const Subscriptions = () => {
 			description: 'Enhanced package with Aerobee water filtration',
 			features: [
 				'All Basic features',
-				'Aerobee water filter system',
+				'Phyto water filter system',
 				'Water quality monitoring',
 				'Contaminant removal tracking',
 				'Priority customer support',

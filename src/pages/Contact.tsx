@@ -20,7 +20,7 @@ const Contact = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Email Contact */}
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-border">
+            <div className="bg-white p-8 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
               <div className="flex items-center gap-3 mb-4">
                 <Mail className="h-6 w-6 text-primary" />
                 <h2 className="text-2xl font-semibold text-gray-900">Email Us</h2>
@@ -38,7 +38,7 @@ const Contact = () => {
             </div>
 
             {/* Phone Contact */}
-            <div className="bg-white p-8 rounded-lg shadow-sm border border-border">
+            <div className="bg-white p-8 rounded-lg shadow-sm border border-border hover:shadow-md transition-shadow">
               <div className="flex items-center gap-3 mb-4">
                 <Phone className="h-6 w-6 text-primary" />
                 <h2 className="text-2xl font-semibold text-gray-900">Call Us</h2>

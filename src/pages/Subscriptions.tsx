@@ -1,7 +1,7 @@
-
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SubscriptionCard from '@/components/SubscriptionCard';
+import { Link } from 'react-router-dom';
 
 const Subscriptions = () => {
   // Subscription plans data
@@ -260,11 +260,12 @@ const Subscriptions = () => {
             <p className="text-xl mb-8 opacity-90">
               Contact our team to discuss the perfect solution for your facility
             </p>
-            <button 
-              className="py-3 px-8 bg-white text-primary rounded-md hover:bg-opacity-90 transition-colors text-center font-semibold text-lg animate-pulse-gentle"
+            <Link 
+              to="/contact"
+              className="inline-block py-3 px-8 bg-white text-primary rounded-md hover:bg-opacity-90 transition-colors text-center font-semibold text-lg animate-pulse-gentle"
             >
               Request a Consultation
-            </button>
+            </Link>
           </div>
         </div>
       </section>

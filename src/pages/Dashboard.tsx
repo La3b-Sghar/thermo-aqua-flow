@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import DashboardSidebar from '@/components/DashboardSidebar';
 import SensorChart from '@/components/charts/SensorChart';
@@ -164,7 +163,7 @@ const Dashboard = () => {
           </div>
           
           {/* Energy Charts */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+          <div id="stirling-motors-chart" className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8 scroll-mt-20">
             <EnergyChart 
               variant="area" 
               title="Power Generation vs. Usage (kWh)" 
@@ -177,24 +176,30 @@ const Dashboard = () => {
           
           {/* Sensor Charts */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <SensorChart 
-              title="Flow Rate" 
-              dataKey="flowRate" 
-              color="#3b82f6" 
-              unit=" L/min" 
-            />
-            <SensorChart 
-              title="Temperature" 
-              dataKey="temperature" 
-              color="#ef4444" 
-              unit="°C" 
-            />
-            <SensorChart 
-              title="pH Level" 
-              dataKey="pH" 
-              color="#10b981" 
-              unit="" 
-            />
+            <div id="sensor-flow-rate" className="scroll-mt-20">
+              <SensorChart 
+                title="Flow Rate" 
+                dataKey="flowRate" 
+                color="#3b82f6" 
+                unit=" L/min" 
+              />
+            </div>
+            <div id="sensor-temperature" className="scroll-mt-20">
+              <SensorChart 
+                title="Temperature" 
+                dataKey="temperature" 
+                color="#ef4444" 
+                unit="°C" 
+              />
+            </div>
+            <div id="sensor-ph-level" className="scroll-mt-20">
+              <SensorChart 
+                title="pH Level" 
+                dataKey="pH" 
+                color="#10b981" 
+                unit="" 
+              />
+            </div>
           </div>
           
           {/* Additional Data */}

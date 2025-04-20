@@ -23,6 +23,13 @@ const mockSensorReadings = [
 const DashboardSidebar = () => {
   const [collapsed, setCollapsed] = useState(false);
 
+  const scrollToElement = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  };
+
   return (
     <div 
       className={`${
@@ -63,13 +70,14 @@ const DashboardSidebar = () => {
           {!collapsed && <h3 className="text-sidebar-foreground text-xs uppercase font-semibold mb-3">Stirling Motors</h3>}
           <div className="space-y-2">
             {mockMotors.map(motor => (
-              <div 
+              <button 
                 key={motor.id} 
+                onClick={() => scrollToElement('stirling-motors-chart')}
                 className={`${
                   collapsed ? 'justify-center' : 'justify-between'
-                } flex items-center p-2 rounded-md ${
+                } w-full flex items-center p-2 rounded-md ${
                   motor.status === 'active' ? 'bg-sidebar-accent/20' : 'bg-gray-700/20'
-                }`}
+                } hover:bg-sidebar-accent/40 transition-colors cursor-pointer`}
               >
                 <div className="flex items-center">
                   <div 
@@ -92,7 +100,7 @@ const DashboardSidebar = () => {
                     {motor.efficiency}
                   </span>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -102,11 +110,12 @@ const DashboardSidebar = () => {
           {!collapsed && <h3 className="text-sidebar-foreground text-xs uppercase font-semibold mb-3">Sensor Readings</h3>}
           <div className="space-y-2">
             {mockSensorReadings.map(sensor => (
-              <div 
+              <button 
                 key={sensor.id} 
+                onClick={() => scrollToElement(`sensor-${sensor.name.toLowerCase().replace(' ', '-')}`)}
                 className={`${
                   collapsed ? 'justify-center' : 'justify-between'
-                } flex items-center p-2 rounded-md bg-sidebar-accent/10`}
+                } w-full flex items-center p-2 rounded-md bg-sidebar-accent/10 hover:bg-sidebar-accent/30 transition-colors cursor-pointer`}
               >
                 {collapsed ? (
                   <div className="h-2 w-2 rounded-full bg-blue-500"/>
@@ -120,7 +129,7 @@ const DashboardSidebar = () => {
                     </span>
                   </>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         </div>
